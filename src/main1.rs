@@ -2,7 +2,7 @@ use std::fmt::{self};
 
 #[derive(Debug)]
 enum Gem {
-    Diamond = 1,
+    Diamond,
     Sapphire,
     Ruby,
     Topaz,
@@ -22,22 +22,15 @@ impl fmt::Display for Gem {
     }
 }
 fn main() {
-    let mut map = [[0; 5]; 5];
-    // println!("{map:?}");
+    let gems= [
+        (Gem::Onyx, 25.00),
+        (Gem::Diamond, 100.00),
+        (Gem::Onyx, 50.00),
+        (Gem::Ruby, 10.00)
+    ];
 
-    map[4][2] = 1;
-    map[1][2] = 2;
-    map[3][3] = 3;
-    map[0][2] = 4;
-    map[1][4] = 5;
-
-    for row in map {
-        println!("{row:?}")
+    for gem in gems {
+        println!("This {} is worth {}", gem.0, gem.1);
+        println!("This {:?} is worth {}", gem.0, gem.1);
     }
-
-    let mut found: Vec<Gem>= Vec::new();
-
-    found.push(Gem::Diamond);
-
-    println!("{found:?}")
 }
